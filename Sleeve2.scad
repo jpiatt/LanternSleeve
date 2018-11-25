@@ -4,14 +4,23 @@ $fa = 5;    // Don't generate larger angles than 5 degrees
 
 union() {
     sleeve();
-    translate([29.5,0,-33]) bottomShelf();
-    #translate([25,0,-12]) rotate([0,85,0]) board();
-    translate([26,0,8]) clipShelf();
+    translate([2,0,3]) mountingBracket();
 }
+
+module clipShelf() {
+    difference() {
+        difference() {
+            color("LimeGreen") cube([5,20,4],true);
+            translate([2,0,-2]) color("Blue") cube([6,21,3], true);
+        };
+        sleeve();
+    }
+}
+
 module bottomShelf() {
     difference() {
-        color("LimeGreen")  cube([10,20,3],true);
-        sleeve();
+        translate([-3,0,0]) color("LimeGreen")  cube([10,20,4],true);
+        translate([-7,0,2]) cube([2,21,2],true);
     }
 }
 
@@ -26,13 +35,12 @@ module board() {
     color("Red") cube([40,20,2], true);
 }
 
-module clipShelf() {
-    difference() {
-        difference() {
-            color("LimeGreen") cube([10,20,3],true);
-            translate([4,0,-3]) cube([16,21,5], true);
-        };
-        sleeve();
-    }
+module mountingBracket() {
+  translate([29.5,0,-34]) bottomShelf();
+  translate([26,0,10]) clipShelf();
+  difference() {
+    translate([26.5,0,-37]) rotate([0,90,0]) cylinder(10,2,2, true);
+    translate([26.5,0,-37]) rotate([0,90,0]) cylinder(10,0.5,0.5, true);
+  }
 }
 echo(version=version());
