@@ -4,7 +4,7 @@ $fa = 5;    // Don't generate larger angles than 5 degrees
 
 union() {
     sleeve();
-    translate([2,0,3]) mountingBracket();
+    translate([2,0,6]) mountingBracket();
 }
 
 module clipShelf() {
@@ -37,10 +37,10 @@ module board() {
 
 module mountingBracket() {
   translate([29.5,0,-34]) bottomShelf();
-  translate([26,0,10]) clipShelf();
+  translate([26,0,8]) clipShelf();
   difference() {
-    translate([26.5,0,-37]) rotate([0,90,0]) cylinder(10,2,2, true);
-    translate([26.5,0,-37]) rotate([0,90,0]) cylinder(10,0.5,0.5, true);
+    translate([26.5,0,-38.5]) rotate([0,90,0]) cylinder(10,4,4, true);
+    translate([26,0,-38.5]) rotate([0,90,0]) cylinder(12,2,2, true);
   }
 }
 echo(version=version());
