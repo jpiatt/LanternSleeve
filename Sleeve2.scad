@@ -43,7 +43,7 @@ module mountingBracket() {
   translate([26,0,8]) clipShelf();
   difference() {
     translate([26.5,0,-38.5]) rotate([0,90,0]) cylinder(10,4,4, true);
-    translate([26,0,-38.5]) rotate([0,90,0]) cylinder(12,2,2, true);
+    translate([26,0,-38.5]) rotate([0,90,0]) cylinder(12,1,1, true);
   }
 }
 echo(version=version());
